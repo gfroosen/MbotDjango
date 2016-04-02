@@ -1,0 +1,18 @@
+{% extends 'api/index.html' %}
+
+
+
+{% block content2 %}
+    <div>
+        {% if form.published_date %}
+            <div>
+                {{ form.published_date }}
+            </div>
+        {% endif %}
+
+        <p>{{form.created_date}}</p>
+        <p>{{form.motorspeedleft }}</p>
+        <p>{{ form.motorspeedright }}</p>
+
+    </div>
+{% endblock %}
