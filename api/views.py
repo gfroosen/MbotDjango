@@ -5,6 +5,12 @@ from rest_framework.response import Response
 from portal.models import Robot
 from api.serializers import RobotSerializer
 
+from django.http import HttpResponse
+from django.shortcuts import render
+from .forms import PostForm
+from django.utils import timezone
+
+
 
 @api_view(['GET', 'POST'])
 def api_dashboard(request):
@@ -52,6 +58,21 @@ def api_detail(request, pk):
     elif request.method == 'DELETE':
         task.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-# Create your views here.
 
-# Create your views here.
+
+
+def index(request):
+    return render(request, 'index.html', {})
+
+
+def robot_control(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.controler=request.user
+            post.save()
+            
+    else:
+        form = PostForm()
+    return render(request, 'api/robot_control.html', {'form': form})
