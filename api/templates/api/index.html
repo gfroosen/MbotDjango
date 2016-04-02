@@ -211,26 +211,18 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
-    <a href="{% url 'robot_control' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-    {% block content %}
-    {% endblock %}
-  </div>
+
+</div>
 </nav>
 
 <div class="jumbotron text-center">
   <h1>Internet of Things</h1>
   <p>MBot meets RaspberryPi</p>
-  <form class="form-inline">
-    <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-    <button type="button" class="btn btn-danger">Subscribe</button>
-  </form>
 </div>
 
-
-<div class="row">
-  <div class="col-sm-4"><button type="button" class="btn btn-primary">Left</button></div>
-  <div class="col-sm-4"><button type="button" class="btn btn-primary">Right</button></div>
-  <div class="col-sm-4"><button type="button" class="btn btn-primary">Primary</button></div>
+    <div class="col-sm-4">
+  {% block content %}
+  {% endblock %}
 </div>
 
 
