@@ -8,6 +8,7 @@ from django.shortcuts import render
 from .forms import PostForm
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_protect
 
 
 
@@ -32,7 +33,7 @@ def api_dashboard(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@csrf_exempt
+@csrf_protect
 def api_detail(request, pk):
     """
     Get, udpate, or delete a specific task
