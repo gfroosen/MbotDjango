@@ -83,7 +83,7 @@ def robot_detail(request,pk):
     return render(request, 'api/robot_detail.html', {'form': form})
 
 def robot_edit(request, pk):
-    form = get_object_or_404(Robot, pk=pk-1)
+    form = get_object_or_404(Robot, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=form)
         if form.is_valid():
