@@ -32,6 +32,7 @@ def api_dashboard(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@csrf_exempt
 def api_detail(request, pk):
     """
     Get, udpate, or delete a specific task
