@@ -11,7 +11,7 @@ from django.shortcuts import render, get_object_or_404
 
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST','DELETE'])
 def api_dashboard(request):
     """
     List all tasks, or create a new task.
@@ -30,6 +30,9 @@ def api_dashboard(request):
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    elif request.method == 'DELETE':
+        task.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def api_detail(request, pk):
