@@ -38,7 +38,7 @@ def api_detail(request, pk):
     """
     try:
         task = Robot.objects.get(pk=pk)
-    except Task.DoesNotExist:
+    except task.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
