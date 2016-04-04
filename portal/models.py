@@ -9,7 +9,7 @@ class Robot(models.Model):
     task_number = models.FloatField(blank=True)
     task_time = models.FloatField(blank=True)
     task_speed = models.FloatField(blank=True)
-    task_direction = models.FloatField(blank=True)
+    task_direction = models.CharField(max_length=200)
 
     created_date = models.DateTimeField(
             default=timezone.now)
