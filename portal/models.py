@@ -6,8 +6,11 @@ class Robot(models.Model):
 
     controler = models.ForeignKey('auth.User')
     robot = models.CharField(max_length=200)
-    motorspeedright = models.FloatField(blank=True)
-    motorspeedleft = models.FloatField(blank=True)
+    task_number = models.FloatField(blank=True)
+    task_time = models.FloatField(blank=True)
+    task_speed = models.FloatField(blank=True)
+    task_direction = models.FloatField(blank=True)
+
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(

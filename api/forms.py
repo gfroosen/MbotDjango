@@ -6,4 +6,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Robot
-        fields = ('motorspeedright', 'motorspeedleft',)
+        fields = ('task_number', 'task_direction', 'task_speed','task_time')
